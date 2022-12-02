@@ -36,7 +36,14 @@ module.exports = () => {
         icons: [
           {
             src: path.resolve('./favicon.ico'),
-            sizes: [96, 128, 192, 256, 384, 512]
+            sizes: [96, 128, 192, 256, 384, 512],
+            sizes: [48],
+            destination: path.join('assets', 'icons')
+          },
+          {
+            src: path.resolve('./src/images/logo.png'),
+            sizes: [500],
+            destination: path.join('assets', 'icons')
           }
         ]
       })
@@ -49,7 +56,7 @@ module.exports = () => {
           use: ['style-loader', 'css-loader'],
         },
         {
-          test: /\.(png|svg|jpg|jpeg|gif)$/i,
+          test: /\.(png|ico|svg|jpg|jpeg|gif)$/i,
           type: 'asset/resource',
         },
         {
