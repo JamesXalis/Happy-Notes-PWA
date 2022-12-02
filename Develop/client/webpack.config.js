@@ -20,7 +20,18 @@ module.exports = () => {
         template: './index.html',
         title: 'Jate',
       }),
-      new GenerateSW(),
+      new GenerateSW({
+        runtimeCaching: [
+          {
+            urlPattern: '/',
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'text',
+
+            }
+          }
+        ]
+      }),
       new InjectManifest({
         swSrc: './src/src-sw.js',
         swDest: 'service-worker.js',
